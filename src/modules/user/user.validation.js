@@ -3,7 +3,10 @@ const Joi = require('joi');
 const signupSchema = Joi.object({
     firstName: Joi.string().min(2).max(50).required(),
     lastName: Joi.string().min(2).max(50).required(),
-    username: Joi.string().min(3).max(30).alphanum().required(),
+    username: Joi.string().min(3).max(30).pattern(/^[a-zA-Z0-9._]+$/).required()
+        .messages({
+            'string.pattern.base': 'Username can only contain letters, numbers, dots, and underscores'
+        }),
     email: Joi.string().email().required(),
     password: Joi.string().min(8).required(),
     phone: Joi.string().allow('', null)
