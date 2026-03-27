@@ -13,6 +13,9 @@ const errorMiddleware = require('./middleware/error.middleware');
 
 const app = express();
 
+// Trust proxy for Railway/Vercel (needed for rate-limiting and correct IP)
+app.set('trust proxy', 1);
+
 // Middlewares
 app.use(cors({
     origin: true,

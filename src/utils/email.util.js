@@ -7,11 +7,18 @@ const sendEmail = async (options) => {
         console.error('ERROR: Email credentials missing in environment!');
     }
 
+    // Configure transport for Port 587 (STARTTLS) - More reliable on cloud hosts
     const transporter = nodemailer.createTransport({
-        service: 'gmail',
+        host: 'smtp.gmail.com',
+        port: 587,
+        secure: false, // true for 465, false for other ports
         auth: {
             user: process.env.EMAIL_USER,
             pass: process.env.EMAIL_PASS
+        },
+        tls: {
+            // Force IPv4 to avoid ENETUNREACH errors commonly found on cloud hosts
+            family: 4 
         }
     });
 
