@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "D:\\web_route\\backend\\Assignments\\Assignment-ten(saraha)-MostafaSamirKamel-Node-C45-Mon-Thurs-830Pm-(Online)\\saraha-backend\\logs\\.ff4f891855dca2cc4db56a0678d09650c00c9fef-audit.json",
+    "files": [
+        {
+            "date": 1774560958862,
+            "name": "D:\\web_route\\backend\\Assignments\\Assignment-ten(saraha)-MostafaSamirKamel-Node-C45-Mon-Thurs-830Pm-(Online)\\saraha-backend\\logs\\error-2026-03-26.log",
+            "hash": "424b4254e5adc2ec4437f5273f26051433206fe783fdcf9f6e5d6eeb5763b083"
+        }
+    ],
+    "hashType": "sha256"
+}

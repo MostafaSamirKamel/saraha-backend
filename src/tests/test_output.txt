@@ -1,0 +1,149 @@
+  console.log
+    [dotenv@17.3.1] injecting env (17) from .env -- tip: ≡ƒöÉ prevent building .env in docker: https://dotenvx.com/prebuild
+
+      at _log (D:\web_route\backend\Assignments\Assignment-ten(saraha)-MostafaSamirKamel-Node-C45-Mon-Thurs-830Pm-(Online)../../../../../saraha-backend/node_modules/dotenv/lib/main.js:139:11)
+
+  console.log
+    [dotenv@17.3.1] injecting env (0) from .env -- tip: ΓÜÖ∩╕Å  specify custom .env file path with { path: '/custom/path/.env' }
+
+      at _log (D:\web_route\backend\Assignments\Assignment-ten(saraha)-MostafaSamirKamel-Node-C45-Mon-Thurs-830Pm-(Online)../../../../../saraha-backend/node_modules/dotenv/lib/main.js:139:11)
+
+  console.log
+    Γ£ô MongoDB Connected Successfully
+
+      at log (D:\web_route\backend\Assignments\Assignment-ten(saraha)-MostafaSamirKamel-Node-C45-Mon-Thurs-830Pm-(Online)../../../../../saraha-backend/src/config/db.config.js:8:17)
+
+  console.log
+    --- Step 1 START ---
+
+      at Object.log (D:\web_route\backend\Assignments\Assignment-ten(saraha)-MostafaSamirKamel-Node-C45-Mon-Thurs-830Pm-(Online)../../../../../saraha-backend/src/tests/auth.test.js:31:17)
+
+  console.log
+    >>> TRACING: POST /api/auth/signup
+
+      at log (D:\web_route\backend\Assignments\Assignment-ten(saraha)-MostafaSamirKamel-Node-C45-Mon-Thurs-830Pm-(Online)../../../../../saraha-backend/src/app.js:25:13)
+
+  console.log
+    Validating Request Body: {
+      firstName: 'Test',
+      lastName: 'User',
+      username: 'testuser',
+      email: 'testuser@example.com',
+      password: 'password123'
+    }
+
+      at log (D:\web_route\backend\Assignments\Assignment-ten(saraha)-MostafaSamirKamel-Node-C45-Mon-Thurs-830Pm-(Online)../../../../../saraha-backend/src/middleware/validation.middleware.js:2:13)
+
+  console.log
+    Signup Attempt: {
+      firstName: 'Test',
+      lastName: 'User',
+      username: 'testuser',
+      email: 'testuser@example.com',
+      password: 'password123'
+    }
+
+      at log (D:\web_route\backend\Assignments\Assignment-ten(saraha)-MostafaSamirKamel-Node-C45-Mon-Thurs-830Pm-(Online)../../../../../saraha-backend/src/modules/user/user.controller.js:6:21)
+
+  console.log
+    
+    ==========================================
+    VERIFICATION OTP FOR testuser@example.com: 850810
+    ==========================================
+
+      at UserService.log [as register] (D:\web_route\backend\Assignments\Assignment-ten(saraha)-MostafaSamirKamel-Node-C45-Mon-Thurs-830Pm-(Online)../../../../../saraha-backend/src/modules/user/user.service.js:36:17)
+
+  console.log
+    Attempting to send email via: sarahadev0@gmail.com
+
+      at log (D:\web_route\backend\Assignments\Assignment-ten(saraha)-MostafaSamirKamel-Node-C45-Mon-Thurs-830Pm-(Online)../../../../../saraha-backend/src/utils/email.util.js:5:13)
+
+[0mPOST /api/auth/signup [32m201[0m 127.390 ms - 193[0m
+  console.log
+    Signup Status: 201
+
+      at Object.log (D:\web_route\backend\Assignments\Assignment-ten(saraha)-MostafaSamirKamel-Node-C45-Mon-Thurs-830Pm-(Online)../../../../../saraha-backend/src/tests/auth.test.js:39:17)
+
+  console.log
+    >>> TRACING: POST /api/auth/verify
+
+      at log (D:\web_route\backend\Assignments\Assignment-ten(saraha)-MostafaSamirKamel-Node-C45-Mon-Thurs-830Pm-(Online)../../../../../saraha-backend/src/app.js:25:13)
+
+(node:12932) [MONGOOSE] Warning: mongoose: the `new` option for `findOneAndUpdate()` and `findOneAndReplace()` is deprecated. Use `returnDocument: 'after'` instead.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[0mPOST /api/auth/verify [32m200[0m 29.328 ms - 58[0m
+  console.log
+    >>> TRACING: POST /api/auth/login
+
+      at log (D:\web_route\backend\Assignments\Assignment-ten(saraha)-MostafaSamirKamel-Node-C45-Mon-Thurs-830Pm-(Online)../../../../../saraha-backend/src/app.js:25:13)
+
+  console.log
+    Validating Request Body: { loginIdentifier: 'testuser@example.com', password: 'password123' }
+
+      at log (D:\web_route\backend\Assignments\Assignment-ten(saraha)-MostafaSamirKamel-Node-C45-Mon-Thurs-830Pm-(Online)../../../../../saraha-backend/src/middleware/validation.middleware.js:2:13)
+
+  console.log
+    Login Attempt: testuser@example.com
+
+      at log (D:\web_route\backend\Assignments\Assignment-ten(saraha)-MostafaSamirKamel-Node-C45-Mon-Thurs-830Pm-(Online)../../../../../saraha-backend/src/modules/user/user.controller.js:71:21)
+
+[0mPOST /api/auth/login [32m200[0m 80.897 ms - 557[0m
+  console.log
+    >>> TRACING: POST /api/auth/login
+
+      at log (D:\web_route\backend\Assignments\Assignment-ten(saraha)-MostafaSamirKamel-Node-C45-Mon-Thurs-830Pm-(Online)../../../../../saraha-backend/src/app.js:25:13)
+
+  console.log
+    Validating Request Body: { loginIdentifier: 'testuser@example.com', password: 'wrongpassword' }
+
+      at log (D:\web_route\backend\Assignments\Assignment-ten(saraha)-MostafaSamirKamel-Node-C45-Mon-Thurs-830Pm-(Online)../../../../../saraha-backend/src/middleware/validation.middleware.js:2:13)
+
+  console.log
+    Login Attempt: testuser@example.com
+
+      at log (D:\web_route\backend\Assignments\Assignment-ten(saraha)-MostafaSamirKamel-Node-C45-Mon-Thurs-830Pm-(Online)../../../../../saraha-backend/src/modules/user/user.controller.js:71:21)
+
+  console.error
+    Login Error: Invalid credentials
+
+    [0m [90m 85 |[39m             })[33m;[39m
+     [90m 86 |[39m         } [36mcatch[39m (error) {
+    [31m[1m>[22m[39m[90m 87 |[39m             console[33m.[39merror([32m'Login Error:'[39m[33m,[39m error[33m.[39mmessage)[33m;[39m
+     [90m    |[39m                     [31m[1m^[22m[39m
+     [90m 88 |[39m             res[33m.[39mstatus([35m401[39m)[33m.[39mjson({ error[33m:[39m error[33m.[39mmessage })[33m;[39m
+     [90m 89 |[39m         }
+     [90m 90 |[39m     }[0m
+
+      at error (D:\web_route\backend\Assignments\Assignment-ten(saraha)-MostafaSamirKamel-Node-C45-Mon-Thurs-830Pm-(Online)../../../../../saraha-backend/src/modules/user/user.controller.js:87:21)
+
+[0mPOST /api/auth/login [33m401[0m 78.703 ms - 31[0m
+PASS src/tests/auth.test.js
+  User Authentication Integration Flow
+    ΓêÜ Step 1: Signup (197 ms)
+    ΓêÜ Step 2: Verify OTP (46 ms)
+    ΓêÜ Step 3: Login (87 ms)
+    ΓêÜ Step 4: Login should fail with wrong password (85 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       4 passed, 4 total
+Snapshots:   0 total
+Time:        3.158 s, estimated 13 s
+Ran all test suites matching src/tests/auth.test.js.
+Jest did not exit one second after the test run has completed.
+
+'This usually means that there are asynchronous operations that weren't stopped in your tests. Consider running Jest with `--detectOpenHandles` to troubleshoot this issue.
+
+  ΓùÅ  Cannot log after tests are done. Did you forget to wait for something async in your test?
+    Attempted to log "Email sent successfully: <b98a8c2b-599b-f6b7-029a-011f1f6c785f@gmail.com>".
+
+      32 |
+      33 |         const info = await transporter.sendMail(mailOptions);
+    > 34 |         console.log('Email sent successfully:', info.messageId);
+         |                 ^
+      35 |         return info;
+      36 |     } catch (error) {
+      37 |         console.error('Nodemailer Error:', error);
+
+      at console.log (D:\web_route\backend\Assignments\Assignment-ten(saraha)-MostafaSamirKamel-Node-C45-Mon-Thurs-830Pm-(Online)../../../../../saraha-backend/node_modules/@jest/console/build/index.js:311:10)
+      at log (D:\web_route\backend\Assignments\Assignment-ten(saraha)-MostafaSamirKamel-Node-C45-Mon-Thurs-830Pm-(Online)../../../../../saraha-backend/src/utils/email.util.js:34:17)
+
