@@ -9,6 +9,7 @@ const sendEmail = async (options) => {
 
     // Configure transport for Port 587 (STARTTLS) - More reliable on cloud hosts
     const transporter = nodemailer.createTransport({
+        service: 'gmail',
         host: 'smtp.gmail.com',
         port: 587,
         secure: false, // true for 465, false for other ports
@@ -16,10 +17,8 @@ const sendEmail = async (options) => {
             user: process.env.EMAIL_USER,
             pass: process.env.EMAIL_PASS
         },
-        tls: {
-            // Force IPv4 to avoid ENETUNREACH errors commonly found on cloud hosts
-            family: 4 
-        }
+        // Force IPv4 to avoid ENETUNREACH errors commonly found on cloud hosts
+        family: 4
     });
 
     try {
