@@ -11,9 +11,14 @@ const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 
 class UserService {
     async register(userData) {
-        const existingUser = await userRepository.findByEmail(userData.email);
-        if (existingUser) {
+        const existingEmail = await userRepository.findByEmail(userData.email);
+        if (existingEmail) {
             throw new Error('Email already exists');
+        }
+
+        const existingUsername = await userRepository.findByUsername(userData.username);
+        if (existingUsername) {
+            throw new Error('Username already exists');
         }
 
         const hashedPassword = await hashPassword(userData.password);
