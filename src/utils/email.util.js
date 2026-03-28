@@ -8,22 +8,9 @@ const sendEmail = async (options) => {
     }
 
     // Configure transport for Port 587 (STARTTLS) - More reliable on cloud hosts
-    // Try Port 465 (SSL) with forced IPv4 - Some cloud providers block 587 but allow 465
-    const transporter = nodemailer.createTransport({
-        host: 'smtp.gmail.com',
-        port: 465,
-        secure: true, // Port 465 uses SSL
-        auth: {
-            user: process.env.EMAIL_USER,
-            pass: process.env.EMAIL_PASS
-        },
-        family: 4, // Force IPv4 explicitly
-        connectionTimeout: 20000, // 20 seconds
-        greetingTimeout: 20000,
-        socketTimeout: 20000,
-        logger: true,
-        debug: true
-    });
+    // Final minimalist attempt using a connection string
+    // This can sometimes bypass DNS/routing quirks in specific cloud environments
+    const transporter = nodemailer.createTransport(`smtps://${encodeURIComponent(process.env.EMAIL_USER)}:${encodeURIComponent(process.env.EMAIL_PASS)}@smtp.gmail.com`);
 
     try {
         const mailOptions = {
