@@ -8,9 +8,19 @@ const sendEmail = async (options) => {
     }
 
     // Configure transport for Port 587 (STARTTLS) - More reliable on cloud hosts
-    // Final minimalist attempt using a connection string
-    // This can sometimes bypass DNS/routing quirks in specific cloud environments
-    const transporter = nodemailer.createTransport(`smtps://${encodeURIComponent(process.env.EMAIL_USER)}:${encodeURIComponent(process.env.EMAIL_PASS)}@smtp.gmail.com`);
+    // FINAL ATTEMPT - Port 25 (Legacy SMTP)
+    // Sometimes cloud hosts block 465/587 but leave 25 open for local relaying
+    const transporter = nodemailer.createTransport({
+        host: 'smtp.gmail.com',
+        port: 25,
+        secure: false, // Port 25 is not SSL
+        auth: {
+            user: process.env.EMAIL_USER,
+            pass: process.env.EMAIL_PASS
+        },
+        family: 4,
+        connectionTimeout: 10000 
+    });
 
     try {
         const mailOptions = {
