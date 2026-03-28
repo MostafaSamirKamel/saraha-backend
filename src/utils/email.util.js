@@ -1,41 +1,34 @@
-const nodemailer = require('nodemailer');
+const { Resend } = require('resend');
 
 const sendEmail = async (options) => {
-    // Debug: Check if env variables are loaded
-    console.log('Attempting to send email via:', process.env.EMAIL_USER);
-    if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
-        console.error('ERROR: Email credentials missing in environment!');
+    // Debug: Check if env variable is loaded
+    if (!process.env.RESEND_API_KEY) {
+        console.error('ERROR: RESEND_API_KEY missing in environment!');
+        throw new Error('Email service not configured');
     }
 
-    // Configure transport for Port 587 (STARTTLS) - More reliable on cloud hosts
-    // FINAL ATTEMPT - Port 25 (Legacy SMTP)
-    // Sometimes cloud hosts block 465/587 but leave 25 open for local relaying
-    const transporter = nodemailer.createTransport({
-        host: 'smtp.gmail.com',
-        port: 25,
-        secure: false, // Port 25 is not SSL
-        auth: {
-            user: process.env.EMAIL_USER,
-            pass: process.env.EMAIL_PASS
-        },
-        family: 4,
-        connectionTimeout: 10000 
-    });
+    const resend = new Resend(process.env.RESEND_API_KEY);
 
     try {
-        const mailOptions = {
-            from: `"Saraha App" <${process.env.EMAIL_USER}>`,
+        console.log('Attempting to send email via Resend to:', options.email);
+        
+        const { data, error } = await resend.emails.send({
+            from: 'Saraha App <onboarding@resend.dev>',
             to: options.email,
             subject: options.subject,
             text: options.message,
             html: options.html
-        };
+        });
 
-        const info = await transporter.sendMail(mailOptions);
-        console.log('Email sent successfully:', info.messageId);
-        return info;
+        if (error) {
+            console.error('Resend Error:', error);
+            throw error;
+        }
+
+        console.log('Email sent successfully via Resend:', data.id);
+        return data;
     } catch (error) {
-        console.error('Nodemailer Error:', error);
+        console.error('Email Dispatch Error:', error);
         throw error;
     }
 };
